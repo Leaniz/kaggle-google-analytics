@@ -1,13 +1,13 @@
 # data
-.csv
-.pkl
-.zip
-.txt
+*.csv
+*.pkl
+*.zip
+*.txt
 
 # cache files
-.pyc
+*.pyc
 
 # notebooks
-.ipynb_checkpoints/
-.ipynb
+ipynb_checkpoints/
+*.ipynb
 notebooks/
