@@ -36,8 +36,9 @@ def numeric_format(train_df, test_df, columns):
 def calc_moving_rev(row, rev_dic):
     user = row["fullVisitorId"]
     if user in rev_dic:
+        out_val = rev_dic[user]
         rev_dic[user] += row["totals.transactionRevenue"]
-        return rev_dic[user]
+        return out_val
     else:
         return 0.
 
@@ -103,14 +104,14 @@ def main(number=None, data=None, save=False):
     details = {}
     # Prepare processed data
     print("Preparing processed data...")
-    train_df, test_df = numeric_format(train_df, test_df, NUMERIC_COLS)
-    details["Numeric formatted"] = NUMERIC_COLS
-
     print("Computing prev revenue...")
     t0 = time()
     train_df, test_df = compute_prev_revenue(train_df, test_df)
     print(f"{time() - t0:.2f} seconds to calculate prev revenue")
     details["Calculated prev revenue"] = True
+
+    train_df, test_df = numeric_format(train_df, test_df, NUMERIC_COLS)
+    details["Numeric formatted"] = NUMERIC_COLS
 
     t0 = time()
     train_df, test_df = label_encode(train_df, test_df, CATEGORICAL_COLS)

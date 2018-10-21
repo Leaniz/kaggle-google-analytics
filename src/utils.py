@@ -15,8 +15,8 @@ def get_folder(details_path, number):
     if new:
         if len(details_list):
             detail_folder = sorted(details_list, reverse=True)[0]
-            last_no = re.search("_[0-9]+")[0][1:]
-            detail_folder = f"model_{last_no + 1}/"
+            last_no = re.search("_[0-9]+", detail_folder)[0][1:]
+            detail_folder = f"model_{int(last_no) + 1}/"
         else:
             detail_folder = "model_1/"
         os.mkdir(details_path + detail_folder)
