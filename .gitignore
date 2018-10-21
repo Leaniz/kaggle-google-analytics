@@ -1,0 +1,12 @@
+# data
+.csv
+.pkl
+.zip
+.txt
+
+# cache files
+.pyc
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+.ipynb
