@@ -11,3 +11,6 @@
 ipynb_checkpoints/
 *.ipynb
 notebooks/
+
+# config file
+config.json
